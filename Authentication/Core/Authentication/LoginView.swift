@@ -14,11 +14,7 @@ struct LoginView: View {
         NavigationStack{
             VStack{
                 // image
-                Image("swiftui-logo")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 100, height: 120)
-                    .padding(.vertical, 32)
+               LogoView()
                 
                 //form fields
                 VStack(spacing:24){
@@ -51,7 +47,8 @@ struct LoginView: View {
                 //sign up button
                 
                 NavigationLink {
-                    Text(verbatim: "asd")
+                   RegistrationView()
+                        .navigationBarBackButtonHidden(true)
                 } label: {
                     HStack(spacing:3){
                         Text("Don't have an account ? ")
