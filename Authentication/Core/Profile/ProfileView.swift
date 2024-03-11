@@ -55,7 +55,9 @@ struct ProfileView: View {
                     .foregroundStyle(.primary)
                     
                     Button(action: {
-                        print("delete account")
+                        Task{
+                            try await viewModel.deleteUserAccount()
+                        }
                     }, label: {
                         SettingsRowView(imageName: "xmark.circle.fill", title: "Delete Account", tintColor: Color(.systemRed))
                           
