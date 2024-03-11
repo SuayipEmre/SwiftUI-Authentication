@@ -26,12 +26,27 @@ struct RegistrationView: View {
                 InputView(text: $email, title: "Email Address", placeholder: "name@example.com")
                     .textInputAutocapitalization(.none)
                 InputView(text: $fullname, title: "Full Name", placeholder: "Enter your name")
-                   
+                
                 
                 InputView(text: $password, title: "Password", placeholder: "enter your password", isSecureField: true)
                     .textInputAutocapitalization(.none)
-                InputView(text: $confirmPassword, title: "Confirm Password", placeholder: "Confirm your Password", isSecureField: true)
-                    .textInputAutocapitalization(.none)
+                ZStack(alignment: .trailing){
+                    InputView(text: $confirmPassword, title: "Confirm Password", placeholder: "Confirm your Password", isSecureField: true)
+                        .textInputAutocapitalization(.none)
+                    if !password.isEmpty && !confirmPassword.isEmpty{
+                        if password == confirmPassword{
+                          Image(systemName: "checkmark.circle.fill")
+                                .imageScale(.large)
+                                .fontWeight(.bold)
+                                .foregroundStyle(Color(.systemGreen))
+                        } else{
+                            Image(systemName: "xmark.circle.fill")
+                                  .imageScale(.large)
+                                  .fontWeight(.bold)
+                                  .foregroundStyle(Color(.systemRed))
+                        }
+                    }
+                }
             }
             .padding(.horizontal)
             .padding(.top, 12)

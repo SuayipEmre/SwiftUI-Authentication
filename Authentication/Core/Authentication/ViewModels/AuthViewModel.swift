@@ -12,7 +12,6 @@ import FirebaseFirestoreSwift
 
 protocol AuthenticationFormProtocol{
     var formIsValid : Bool{ get }
-    
 }
 
 @MainActor
@@ -64,10 +63,7 @@ class AuthViewModel : ObservableObject{
             print("failed to sig out with error \(error.localizedDescription)")
         }
     }
-    
-    func deleteAccount(){
-        
-    }
+   
     
     func fetchUser() async {
         guard let uid = Auth.auth().currentUser?.uid else{return}

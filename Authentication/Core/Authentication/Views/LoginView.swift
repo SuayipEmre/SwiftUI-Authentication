@@ -51,7 +51,6 @@ struct LoginView: View {
                 Spacer()
                 
                 //sign up button
-                
                 NavigationLink {
                    RegistrationView()
                         .navigationBarBackButtonHidden(true)
