@@ -50,6 +50,8 @@ struct RegistrationView: View {
                 .foregroundStyle(.white)
             })
             .background(Color(.systemBlue))
+            .disabled(!formIsValid)
+            .opacity(formIsValid ? 1.0 : 0.5)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .padding(.top, 24)
             
@@ -68,6 +70,20 @@ struct RegistrationView: View {
         }
     }
 }
+
+// MARK: - AuthenticationFormProtocol
+
+extension RegistrationView : AuthenticationFormProtocol{
+    var formIsValid: Bool {
+        return !email.isEmpty
+        && email.contains("@")
+        && !password.isEmpty
+        && password.count > 5
+        && password == confirmPassword
+        && !fullname.isEmpty
+    }
+}
+
 
 #Preview {
     RegistrationView()
